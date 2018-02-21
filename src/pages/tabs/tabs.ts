@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {MapPage} from '../map/map';
+import {AddPostPage} from '../add-post/add-post';
+import {ViewPostPage} from '../view-post/view-post';
+import {SettingsPage} from '../settings/settings';
 
 /**
  * Generated class for the TabsPage page.
@@ -21,14 +25,10 @@ export class TabsPage {
   private tab4Root: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.tab1Root = HomePage;
-    this.tab2Root = AboutPage;
-    this.tab3Root = ContactPage;
-    this.tab3Root = ContactPage;
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabsPage');
+    this.tab1Root = MapPage;
+    this.tab2Root = AddPostPage;
+    this.tab3Root = ViewPostPage;
+    this.tab4Root = SettingsPage;
   }
 
 }

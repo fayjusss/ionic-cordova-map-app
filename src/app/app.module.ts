@@ -7,12 +7,22 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
+import { MapPage } from '../pages/map/map';
+import { AddPostPage } from '../pages/add-post/add-post';
+import { ViewPostPage } from '../pages/view-post/view-post';
+import { SettingsPage } from '../pages/settings/settings';
 import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    TabsPage,
+    MapPage,
+    AddPostPage,
+    ViewPostPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -21,7 +31,12 @@ import { AuthProvider } from '../providers/auth/auth';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    TabsPage,
+    MapPage,
+    AddPostPage,
+    ViewPostPage,
+    SettingsPage
   ],
   providers: [
     GoogleMaps,

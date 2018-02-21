@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the SettingsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+// We import the authentication provider to test the log-out function.
+import { AuthProvider } from '../../providers/auth/auth';
 
 @IonicPage()
 @Component({
@@ -15,11 +11,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SettingsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public authProvider: AuthProvider) {}
+
+  /**
+   * Calls the authentication provider and logs the user out, on successful logout it sends the user
+   * back to the login page.
+   */
+  logMeOut() {
+    this.authProvider.logoutUser().then( () => {
+      this.navCtrl.setRoot('LoginPage');
+    });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
-  }
 
 }
