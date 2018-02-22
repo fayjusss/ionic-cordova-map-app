@@ -13,6 +13,8 @@ import { AddPostPage } from '../pages/add-post/add-post';
 import { ViewPostPage } from '../pages/view-post/view-post';
 import { SettingsPage } from '../pages/settings/settings';
 import { AuthProvider } from '../providers/auth/auth';
+import { AgmCoreModule } from "@agm/core";
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { AuthProvider } from '../providers/auth/auth';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAlDfgN2-37fmebMmmuEIKi6KOdMmYrALA'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
