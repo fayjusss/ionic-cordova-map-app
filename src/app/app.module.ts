@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { Camera } from '@ionic-native/camera';
+import { Geolocation } from '@ionic-native/geolocation';
 import { AgmCoreModule } from "@agm/core";
 
 import { AuthProvider } from '../providers/auth/auth';
@@ -49,6 +51,8 @@ import { SettingsPage } from '../pages/settings/settings';
     SettingsPage
   ],
   providers: [
+    Geolocation,
+    Camera,
     GoogleMaps,
     StatusBar,
     SplashScreen,
