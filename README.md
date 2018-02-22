@@ -32,9 +32,6 @@ https://javebratt.com/ionic-firebase-authentication/ - for implementing login us
 https://ionicframework.com/docs/
 
 https://developers.google.com/maps/documentation/javascript/geocoding?hl=en
-  
-https://developers.google.com/maps/documentation/javascript/examples/marker-remove?hl=en
-  
+    
 https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/
 
-https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html
