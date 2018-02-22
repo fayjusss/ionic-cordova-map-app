@@ -3,7 +3,7 @@ import { IonicPage, NavController, LoadingController, Loading, AlertController }
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { EmailValidator } from '../../validators/email';
-import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -13,15 +13,15 @@ import { HomePage } from '../home/home';
 export class SignupPage {
   public signupForm:FormGroup;
   public loading:Loading;
-  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, 
-  public alertCtrl: AlertController, public formBuilder: FormBuilder, 
+  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController,
+  public alertCtrl: AlertController, public formBuilder: FormBuilder,
   public authProvider: AuthProvider) {
-    
+
     this.signupForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
       password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
     });
-  
+
   }
 
   signupUser(){
@@ -31,7 +31,7 @@ export class SignupPage {
       this.authProvider.signupUser(this.signupForm.value.email, this.signupForm.value.password)
       .then(() => {
         this.loading.dismiss().then( () => {
-          this.navCtrl.setRoot(HomePage);
+          this.navCtrl.setRoot(TabsPage);
         });
       }, (error) => {
         this.loading.dismiss().then( () => {
