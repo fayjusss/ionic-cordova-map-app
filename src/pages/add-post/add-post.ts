@@ -41,7 +41,7 @@ export class AddPostPage {
     }
 
     onOpenMap() {
-      const modal = this.modalCtrl.create(SetLocationPage,
+      const modal = this.modalCtrl.create(MapPage,
         {location: this.location, isSet: this.locationIsSet});
       modal.present();
       modal.onDidDismiss(
