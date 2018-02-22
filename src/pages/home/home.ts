@@ -1,24 +1,42 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-// We import the authentication provider to test the log-out function.
-import { AuthProvider } from '../../providers/auth/auth';
+import { Component, OnInit } from '@angular/core';
+
+import { ModalController } from 'ionic-angular';
+import { AddPostPage } from "../add-post/add-post";
+import { Place } from "../../models/place";
+import { PlacesService } from "../../services/places";
+import { ViewPostPage } from "../view-post/view-post";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit{
+  addPostPage = AddPostPage;
+  places: Place[] = [];
 
-  constructor(public navCtrl: NavController, public authProvider: AuthProvider) {}
+  constructor(private modalCtrl: ModalController,
+              private placesService: PlacesService) {
 
-  /**
-   * Calls the authentication provider and logs the user out, on successful logout it sends the user
-   * back to the login page.
-   */
-  logMeOut() {
-    this.authProvider.logoutUser().then( () => {
-      this.navCtrl.setRoot('LoginPage');
-    });
   }
 
+  ngOnInit() {
+    this.placesService.fetchPlaces()
+      .then(
+        (places: Place[]) => this.places = places
+      );
+  }
+
+  ionViewWillEnter() {
+    this.places = this.placesService.loadPlaces();
+  }
+
+  onOpenPlace(place: Place, index: number) {
+    const modal = this.modalCtrl.create(ViewPostPage, {place: place, index: index});
+    modal.present();
+    modal.onDidDismiss(
+      () => {
+        this.places = this.placesService.loadPlaces();
+      }
+    );
+  }
 }
