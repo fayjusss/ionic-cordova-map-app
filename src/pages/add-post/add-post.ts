@@ -24,7 +24,6 @@ export class AddPostPage {
 
     constructor(private modalCtrl: ModalController,
                 private loadingCtrl: LoadingController,
-                private geolocation: Geolocation,
                 private toastCtrl: ToastController,
                 private placesService: PlacesService) {
     }
