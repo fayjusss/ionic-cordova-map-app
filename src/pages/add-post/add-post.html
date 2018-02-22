@@ -56,14 +56,14 @@
       </ion-row>
       <ion-row *ngIf="locationIsSet">
         <ion-col>
-          <sebm-google-map
+          <agm-map
             [latitude]="location.lat"
             [longitude]="location.lng"
             [zoom]="16">
-            <sebm-google-map-marker
+            <agm-marker
               [latitude]="location.lat"
-              [longitude]="location.lng"></sebm-google-map-marker>
-          </sebm-google-map>
+              [longitude]="location.lng"></agm-marker>
+          </agm-map>
         </ion-col>
       </ion-row>
       <ion-row>
